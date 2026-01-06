@@ -35,6 +35,12 @@ function categoryForSlug(slug: string) {
   return 'Blog';
 }
 
+function formatDate(dateStr?: string) {
+  if (!dateStr) return '';
+  const date = new Date(dateStr);
+  return new Intl.DateTimeFormat('es-CL', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
+}
+
 export default async function HomePage() {
   const items = await getAllContentMeta();
   const posts = items.filter((i) => i.type === 'post');
@@ -72,9 +78,9 @@ export default async function HomePage() {
               Por más de 20 años nuestra labor se ha concentrado en promover la igualdad de derechos y oportunidades,
               reflejando el amor de Cristo en cada acción.
             </p>
-            <div className="card-grid">
+            <div className="feature-grid">
               {pillars.map((pillar) => (
-                <div className="card" key={pillar.title}>
+                <div className="feature" key={pillar.title}>
                   <h3>{pillar.title}</h3>
                   <p>{pillar.desc}</p>
                 </div>
@@ -92,30 +98,44 @@ export default async function HomePage() {
       </section>
 
       <section className="section">
-        <div className="info-row">
-          <div>
-            <h2>Comprometidos con la inclusión</h2>
-            <p style={{ marginTop: 0 }}>
-              Nuestra Esperanza es una corporación laica integrada por miembros de la Iglesia Adventista del Séptimo Día
-              comprometidos con el desarrollo integral de personas con discapacidad visual.
-            </p>
-            <div className="card-grid">
-              {missionVision.map((item) => (
-                <div className="card" key={item.title}>
+        <h2>Comprometidos con la inclusión</h2>
+        <p style={{ marginTop: 0 }}>
+          Nuestra Esperanza es una corporación laica integrada por miembros de la Iglesia Adventista del Séptimo Día
+          comprometidos con el desarrollo integral de personas con discapacidad visual.
+        </p>
+        {missionVision.map((item, idx) => (
+          <div className="info-row" key={item.title} style={{ marginTop: '1rem' }}>
+            {idx % 2 === 0 ? (
+              <>
+                <div>
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
-              ))}
-            </div>
+                <div>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    style={{ borderRadius: '16px', boxShadow: '0 14px 35px rgba(0,0,0,0.14)' }}
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    style={{ borderRadius: '16px', boxShadow: '0 14px 35px rgba(0,0,0,0.14)' }}
+                  />
+                </div>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </>
+            )}
           </div>
-          <div>
-            <img
-              src="/images/DSCN3854-scaled.jpg"
-              alt="Participante usando laptop"
-              style={{ borderRadius: '16px', boxShadow: '0 14px 35px rgba(0,0,0,0.14)' }}
-            />
-          </div>
-        </div>
+        ))}
       </section>
 
       <section className="section">
@@ -137,7 +157,9 @@ export default async function HomePage() {
               </h3>
               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap', color: '#475569' }}>
                 <span className="badge">{categoryForSlug(post.slug)}</span>
-                {post.lastUpdated && <span>{post.lastUpdated}</span>}
+                {post.lastUpdated && <span>{formatDate(post.lastUpdated)}</span>}
+                <span>—</span>
+                <span>por Froilán Gallardo</span>
               </div>
               <p style={{ margin: 0 }}>{post.description}</p>
               {idx < posts.length - 1 && <span style={{ height: '1px', background: 'rgba(0,0,0,0.08)', width: '100%' }} />}

@@ -18,21 +18,55 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <body>
         <main>
-          <div className="nav">
+          <header className="nav">
             <a href="/" style={{ fontWeight: 800, letterSpacing: '-0.02em', color: '#0b4da5' }}>
-              Nuestra Esperanza
+              Nuestra esperanza
             </a>
-            <div>
-              <a href="/historia/">Historia</a>
+            <nav>
+              <a href="/ultimas-publicaciones/">Blog</a>
               <a href="/recursos/">Recursos</a>
+              <a href="/historia/">Historia</a>
               <a href="/contacto/">Contacto</a>
               <a href="/donar/">Donar</a>
-            </div>
-          </div>
+            </nav>
+          </header>
           <div className="shell">{children}</div>
           <footer className="footer">
-            Corporación Nuestra Esperanza · Contenido estático en Markdown ·{' '}
-            <a href="/politica-de-privacidad/">Privacidad</a> · <a href="/terminos-y-condiciones/">Términos</a>
+            <div className="footer-grid">
+              <div>
+                <div style={{ fontWeight: 800, color: '#0b4da5', marginBottom: '0.35rem' }}>Nuestra esperanza</div>
+                <div style={{ margin: 0, color: '#475569' }}>
+                  Compartiendo la esperanza de Jesús con personas ciegas y con baja visión.
+                </div>
+              </div>
+              <div>
+                <h4>Esperanza</h4>
+                <nav>
+                  <a href="/ultimas-publicaciones/">Blog</a>
+                  <a href="/recursos/">Recursos</a>
+                  <a href="/historia/">Historia</a>
+                  <a href="/contacto/">Contacto</a>
+                  <a href="/donar/">Donar</a>
+                </nav>
+              </div>
+              <div>
+                <h4>Privacidad</h4>
+                <nav>
+                  <a href="/politica-de-privacidad/">Política de privacidad</a>
+                  <a href="/terminos-y-condiciones/">Términos y condiciones</a>
+                </nav>
+              </div>
+              <div>
+                <h4>Redes sociales</h4>
+                <nav>
+                  <a href="#">Facebook</a>
+                  <a href="https://www.instagram.com/nuestraesperanzachile/">Instagram</a>
+                </nav>
+              </div>
+            </div>
+            <div style={{ marginTop: '1rem', color: '#6b7280', fontSize: '0.95rem' }}>
+              Corporación Nuestra Esperanza, 2025.
+            </div>
           </footer>
         </main>
       </body>
