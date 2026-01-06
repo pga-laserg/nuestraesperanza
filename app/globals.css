@@ -25,8 +25,28 @@ a:hover {
   text-decoration: underline;
 }
 
+ h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin: 0 0 0.6rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.35rem;
+}
+
 main {
-  max-width: 1180px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 1.2rem 1.25rem 3rem;
 }
@@ -59,13 +79,13 @@ img {
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 1.8rem;
   align-items: center;
+  padding: 0.5rem 0;
 }
 
 .hero h1 {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  margin: 0 0 0.6rem;
+  font-size: clamp(2rem, 4vw, 2.7rem);
 }
 
 .hero p {
@@ -84,7 +104,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 0.65rem 1.05rem;
-  border-radius: 4px;
+  border-radius: 3px;
   font-weight: 700;
   border: 1px solid #0b4da5;
 }
@@ -100,7 +120,12 @@ img {
 }
 
 .section {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.section:last-of-type {
+  border-bottom: none;
 }
 
 .section h2 {
@@ -121,7 +146,7 @@ img {
 .info-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-items: center;
 }
 
@@ -172,6 +197,15 @@ img {
 
 .footer h4 {
   margin: 0 0 0.4rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  padding-left: 1.1rem;
+  margin: 0.5rem 0 1rem;
 }
 
 @media (max-width: 640px) {

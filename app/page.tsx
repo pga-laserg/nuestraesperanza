@@ -38,7 +38,7 @@ function categoryForSlug(slug: string) {
 function formatDate(dateStr?: string) {
   if (!dateStr) return '';
   const date = new Date(dateStr);
-  return new Intl.DateTimeFormat('es-CL', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
+  return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
 }
 
 export default async function HomePage() {
@@ -56,16 +56,13 @@ export default async function HomePage() {
             <Link className="btn primary" href="#sobre-nosotros">
               Conozca más
             </Link>
-            <Link className="btn ghost" href="/recursos/">
-              Recursos
-            </Link>
           </div>
         </div>
         <div>
           <img
             src="/images/blind-person-with-cane.jpeg"
             alt="Mujer con bastón y audífonos en un parque"
-            style={{ borderRadius: '18px', boxShadow: '0 18px 45px rgba(0,0,0,0.18)' }}
+            style={{ borderRadius: '8px' }}
           />
         </div>
       </section>
