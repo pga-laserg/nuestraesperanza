@@ -129,25 +129,18 @@ export default async function HomePage() {
 
       <section className="section">
         <h2>Últimas publicaciones</h2>
-        <div className="card-grid">
-          {posts.map((post) => (
-            <div className="card post-card" key={post.slug}>
-              {post.featuredImage ? (
-                <img
-                  src={post.featuredImage}
-                  alt={post.title}
-                  style={{ borderRadius: '12px', objectFit: 'cover', width: '100%', height: '100%' }}
-                />
-              ) : null}
-              <div>
-                <div className="badge">
-                  {post.lastUpdated || 'Actual'} · {categoryForSlug(post.slug)}
-                </div>
-                <h3 style={{ marginTop: '0.35rem', marginBottom: '0.25rem' }}>
-                  <Link href={`/${post.slug}/`}>{post.title}</Link>
-                </h3>
-                <p style={{ margin: 0 }}>{post.description}</p>
+        <div className="post-list">
+          {posts.map((post, idx) => (
+            <div className="post-item" key={post.slug}>
+              <h3 style={{ margin: 0 }}>
+                <Link href={`/${post.slug}/`}>{post.title}</Link>
+              </h3>
+              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap', color: '#475569' }}>
+                <span className="badge">{categoryForSlug(post.slug)}</span>
+                {post.lastUpdated && <span>{post.lastUpdated}</span>}
               </div>
+              <p style={{ margin: 0 }}>{post.description}</p>
+              {idx < posts.length - 1 && <span style={{ height: '1px', background: 'rgba(0,0,0,0.08)', width: '100%' }} />}
             </div>
           ))}
           {posts.length === 0 && <p>No hay publicaciones disponibles.</p>}
