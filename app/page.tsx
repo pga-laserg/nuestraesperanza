@@ -62,7 +62,7 @@ export default async function HomePage() {
           <img
             src="/images/blind-person-with-cane.jpeg"
             alt="Mujer con bastón y audífonos en un parque"
-            style={{ borderRadius: '8px' }}
+            style={{ borderRadius: '6px' }}
           />
         </div>
       </section>
@@ -88,7 +88,7 @@ export default async function HomePage() {
             <img
               src="/images/ne-30-scaled.jpg"
               alt="Actividades en grupo de Nuestra Esperanza"
-              style={{ borderRadius: '16px', boxShadow: '0 14px 35px rgba(0,0,0,0.14)' }}
+              style={{ borderRadius: '6px' }}
             />
           </div>
         </div>
@@ -109,21 +109,13 @@ export default async function HomePage() {
                   <p>{item.desc}</p>
                 </div>
                 <div>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    style={{ borderRadius: '16px', boxShadow: '0 14px 35px rgba(0,0,0,0.14)' }}
-                  />
+                  <img src={item.image} alt={item.title} style={{ borderRadius: '6px' }} />
                 </div>
               </>
             ) : (
               <>
                 <div>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    style={{ borderRadius: '16px', boxShadow: '0 14px 35px rgba(0,0,0,0.14)' }}
-                  />
+                  <img src={item.image} alt={item.title} style={{ borderRadius: '6px' }} />
                 </div>
                 <div>
                   <h3>{item.title}</h3>
@@ -135,13 +127,15 @@ export default async function HomePage() {
         ))}
       </section>
 
-      <section className="section">
-        <div className="blockquote">
-          <p style={{ margin: 0, fontWeight: 600 }}>
-            «Para los ciegos fui sus ojos; para los cojos, sus pies.»
-          </p>
-          <p style={{ margin: '0.35rem 0 0', color: '#475569' }}>Job 29:14-15 · Nueva Versión Internacional</p>
-        </div>
+      <section className="blockquote">
+        <p style={{ margin: 0, fontWeight: 600, fontSize: '1.2rem' }}>
+          «De justicia y rectitud me revestí; ellas eran mi manto y mi turbante.
+        </p>
+        <p style={{ margin: '0.35rem 0 0', fontWeight: 600, fontSize: '1.2rem' }}>
+          Para los ciegos fui sus ojos; para los cojos, sus pies.»
+        </p>
+        <p style={{ margin: '0.35rem 0 0', color: '#d1d5db', fontStyle: 'italic' }}>Job 29:14-15</p>
+        <p style={{ margin: '0.1rem 0 0', color: '#d1d5db', fontStyle: 'italic' }}>Nueva Versión Internacional</p>
       </section>
 
       <section className="section">
@@ -159,7 +153,9 @@ export default async function HomePage() {
                 <span>por Froilán Gallardo</span>
               </div>
               <p style={{ margin: 0 }}>{post.description}</p>
-              {idx < posts.length - 1 && <span style={{ height: '1px', background: 'rgba(0,0,0,0.08)', width: '100%' }} />}
+              {idx < posts.length - 1 && (
+                <span style={{ height: '1px', background: 'rgba(0,0,0,0.08)', width: '100%' }} />
+              )}
             </div>
           ))}
           {posts.length === 0 && <p>No hay publicaciones disponibles.</p>}
