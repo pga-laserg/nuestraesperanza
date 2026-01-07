@@ -87,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 </div>
                             </div>
                             <div style={{ marginTop: '3rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border)', color: 'var(--text-light)', fontSize: '0.85rem', textAlign: 'center' }}>
-                                &copy; {new Date().getFullYear()} Corporación Nuestra Esperanza. Todos los derechos reservados.
+                                &copy; {new Date().getFullYear()} Corporación Nuestra Esperanza.
                             </div>
                         </div>
                     </footer>
