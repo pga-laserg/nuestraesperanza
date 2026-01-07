@@ -70,7 +70,7 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-      <section className="section gray-bg" id="sobre-nosotros">
+      <section className="section section-lg gray-bg" id="sobre-nosotros">
         <div className="container">
           <div className="section-header-alt">
             <div className="asterisk">✻</div>
@@ -91,7 +91,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-lg">
         <div className="container">
           <div className="section-header-alt">
             <div className="asterisk">✻</div>
@@ -133,7 +133,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-lg">
         <div className="container">
           <h2>Últimas publicaciones</h2>
           <div className="post-list">
@@ -158,7 +158,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-lg">
         <div className="container">
           <div className="contact-card">
             <h2>Conéctate con nosotros</h2>
