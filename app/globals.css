@@ -98,6 +98,7 @@ article img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   margin: 2rem 0;
+  filter: grayscale(100%);
 }
 
 article h2 {
@@ -269,6 +270,11 @@ main {
 }
 
 .gray-bg {
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+.white-bg {
   background-color: #ffffff;
   width: 100%;
 }

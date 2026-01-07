@@ -3,7 +3,7 @@ title: "Historia"
 slug: "historia"
 description: "Relato atemporal sobre el origen y crecimiento del ministerio Nuestra Esperanza."
 lastUpdated: "2024-12-18"
-featuredImage: ""
+featuredImage: "/images/DSCN3854-scaled.jpg"
 ---
 
 ## Nuestros comienzos

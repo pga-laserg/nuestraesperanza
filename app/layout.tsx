@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import './globals.css';
 
 const siteUrl = process.env.SITE_URL || 'https://nuestraesperanza.cl';
@@ -27,20 +28,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body>
                 <main>
                     <header className="nav">
-                        <a href="/" className="logo">
+                        <Link href="/" className="logo">
                             <img
                                 src="/images/ne-icon-2025-2.png"
                                 alt="Logo Nuestra Esperanza"
                                 style={{ width: '32px', height: '32px', objectFit: 'contain' }}
                             />
                             <span>Nuestra esperanza</span>
-                        </a>
+                        </Link>
                         <nav>
-                            <a href="/ultimas-publicaciones/">Blog</a>
-                            <a href="/recursos/">Recursos</a>
-                            <a href="/historia/">Historia</a>
-                            <a href="/contacto/">Contacto</a>
-                            <a href="/donar/">Donar</a>
+                            <Link href="/ultimas-publicaciones/">Blog</Link>
+                            <Link href="/recursos/">Recursos</Link>
+                            <Link href="/historia/">Historia</Link>
+                            <Link href="/contacto/">Contacto</Link>
+                            <Link href="/donar/">Donar</Link>
                         </nav>
                     </header>
 
@@ -65,17 +66,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 <div>
                                     <h4>Ministerio</h4>
                                     <nav>
-                                        <a href="/ultimas-publicaciones/">Blog</a>
-                                        <a href="/recursos/">Recursos</a>
-                                        <a href="/historia/">Historia</a>
+                                        <Link href="/ultimas-publicaciones/">Blog</Link>
+                                        <Link href="/recursos/">Recursos</Link>
+                                        <Link href="/historia/">Historia</Link>
                                     </nav>
                                 </div>
                                 <div>
                                     <h4>Soporte</h4>
                                     <nav>
-                                        <a href="/contacto/">Contacto</a>
-                                        <a href="/donar/">Donar</a>
-                                        <a href="/politica-de-privacidad/">Privacidad</a>
+                                        <Link href="/contacto/">Contacto</Link>
+                                        <Link href="/donar/">Donar</Link>
+                                        <Link href="/politica-de-privacidad/">Privacidad</Link>
                                     </nav>
                                 </div>
                                 <div>
