@@ -58,13 +58,11 @@ export default async function HomePage() {
             </Link>
           </div>
         </div>
-        <div>
-          <img
-            src="/images/blind-person-with-cane.jpeg"
-            alt="Mujer con bastón y audífonos en un parque"
-            style={{ borderRadius: '6px' }}
-          />
-        </div>
+        <img
+          src="/images/Firefly-20241223185222.png"
+          alt="Mujer con bastón en parque con audífonos"
+          style={{ borderRadius: '12px', width: '100%', maxWidth: '960px' }}
+        />
       </section>
 
       <section className="section" id="sobre-nosotros">
