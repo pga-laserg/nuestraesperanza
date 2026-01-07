@@ -19,7 +19,8 @@ Uno de nuestros mayores orgullos es la producción de libros de la Biblia y curs
 ### Cursos de Estudio Bíblico
 Ofrecemos cursos adaptados que pueden ser seguidos de manera presencial o a través de nuestra escuela bíblica virtual, asegurando que el mensaje de esperanza llegue a cada rincón de Chile.
 
+
 ---
 
-> [!NOTE]
+> **Nota**  
 > Todos nuestros materiales son distribuidos de manera gratuita a quienes los necesiten. Si deseas solicitar algún recurso específico, no dudes en contactarnos.

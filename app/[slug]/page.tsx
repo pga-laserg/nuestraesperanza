@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllContentMeta, getContentBySlug } from '@/lib/content';
+import { FacebookVideo } from '@/app/components/FacebookVideo';
+import { ContactForm } from '@/app/components/ContactForm';
 
 export async function generateStaticParams() {
   const items = await getAllContentMeta();
@@ -31,35 +33,58 @@ function formatDate(dateStr?: string) {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const item = await getContentBySlug(params.slug);
+  const isLaSerena = item?.slug === 'encuentro-nacional-la-serena';
+  const isHistoria = item?.slug === 'historia';
+  const isContacto = item?.slug === 'contacto';
+  const isRecursos = item?.slug === 'recursos';
 
   if (!item) {
     notFound();
   }
 
+  let bodyBefore = isContacto ? '' : item.body;
+  let bodyAfter = '';
+
+  if (isLaSerena) {
+    const imgIdx = item.body.indexOf('<p><img');
+    if (imgIdx !== -1) {
+      bodyBefore = item.body.slice(0, imgIdx);
+      bodyAfter = item.body.slice(imgIdx);
+    }
+  }
+
+  const articleClassNames = [
+    isHistoria ? 'historia-article' : '',
+    isRecursos ? 'recursos-article' : '',
+  ]
+    .filter(Boolean)
+    .join(' ') || undefined;
+
   return (
-    <article style={{ maxWidth: 'none', margin: 0, padding: 0 }}>
+    <article className={articleClassNames} style={{ maxWidth: 'none', margin: 0, padding: 0 }}>
       <section className="section white-bg">
         <div className="container" style={{ maxWidth: '800px' }}>
           <header style={{ marginBottom: '4rem', textAlign: 'center' }}>
             <div className="asterisk">✻</div>
             <h1 style={{ marginBottom: '1rem', fontStyle: 'normal' }}>{item.title}</h1>
-            {item.lastUpdated && (
-              <div style={{ color: 'var(--text-light)', fontSize: '0.95rem', fontStyle: 'italic' }}>
-                Última actualización: {formatDate(item.lastUpdated)}
-              </div>
-            )}
           </header>
 
-          {item.featuredImage ? (
-            <div className="info-image" style={{ marginBottom: '4rem' }}>
-              <img src={item.featuredImage} alt={item.title} style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-lg)' }} />
+          {isContacto ? (
+            <div style={{ margin: '0 0 2rem 0' }}>
+              <p className="contact-intro">Completa el formulario y te responderemos a la brevedad.</p>
+              <ContactForm />
+            </div>
+          ) : (
+            <div className="content-body" dangerouslySetInnerHTML={{ __html: bodyBefore }} />
+          )}
+
+          {isLaSerena ? (
+            <div style={{ margin: '2.5rem 0' }}>
+              <FacebookVideo url="https://www.facebook.com/nuestraesperanza.cl/videos/1545216239459170/" />
             </div>
           ) : null}
 
-          <div
-            className="content-body"
-            dangerouslySetInnerHTML={{ __html: item.body }}
-          />
+          {bodyAfter ? <div className="content-body" dangerouslySetInnerHTML={{ __html: bodyAfter }} /> : null}
 
           <footer style={{ marginTop: 'var(--section-pad)', paddingTop: '2rem', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
             <Link href="/" className="btn black">Volver al inicio</Link>

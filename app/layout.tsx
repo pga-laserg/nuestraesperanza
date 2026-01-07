@@ -41,7 +41,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             <Link href="/recursos/">Recursos</Link>
                             <Link href="/historia/">Historia</Link>
                             <Link href="/contacto/">Contacto</Link>
-                            <Link href="/donar/">Donar</Link>
                         </nav>
                     </header>
 
@@ -75,7 +74,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                     <h4>Soporte</h4>
                                     <nav>
                                         <Link href="/contacto/">Contacto</Link>
-                                        <Link href="/donar/">Donar</Link>
                                         <Link href="/politica-de-privacidad/">Privacidad</Link>
                                     </nav>
                                 </div>
