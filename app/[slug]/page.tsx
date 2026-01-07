@@ -58,8 +58,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           dangerouslySetInnerHTML={{ __html: item.body }}
         />
 
-        <footer style={{ marginTop: '5rem', paddingTop: '2rem', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
-          <a href="/" className="btn ghost">Volver al inicio</a>
+        <footer style={{ marginTop: 'var(--section-pad)', paddingTop: '2rem', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
+          <a href="/" className="btn black">Volver al inicio</a>
         </footer>
       </div>
     </article>

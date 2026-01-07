@@ -138,20 +138,20 @@ export default async function HomePage() {
           <h2>Últimas publicaciones</h2>
           <div className="post-list">
             {posts.map((post) => (
-              <div className="post-item" key={post.slug}>
+              <Link href={`/${post.slug}/`} className="post-item" key={post.slug}>
                 <div style={{ marginBottom: '1.25rem' }}>
                   <span className="badge">{categoryForSlug(post.slug)}</span>
                 </div>
-                <h3 style={{ margin: '0 0 0.5rem 0' }}>
-                  <Link href={`/${post.slug}/`}>{post.title}</Link>
+                <h3 style={{ margin: '0 0 0.5rem 0', color: '#111' }}>
+                  {post.title}
                 </h3>
                 <div style={{ color: 'var(--text-light)', fontSize: '0.9rem', marginBottom: '1rem' }}>
                   {post.lastUpdated && <span>{formatDate(post.lastUpdated)}</span>}
                   <span style={{ margin: '0 0.5rem' }}>•</span>
                   <span>Por Froilán Gallardo</span>
                 </div>
-                <p style={{ margin: 0 }}>{post.description}</p>
-              </div>
+                <p style={{ margin: 0, color: 'var(--text-light)' }}>{post.description}</p>
+              </Link>
             ))}
             {posts.length === 0 && <p style={{ textAlign: 'center' }}>No hay publicaciones disponibles en este momento.</p>}
           </div>
