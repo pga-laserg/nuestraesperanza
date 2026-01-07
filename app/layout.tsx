@@ -50,11 +50,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <div className="container">
                             <div className="footer-grid">
                                 <div className="footer-brand">
-                                    <div style={{ fontWeight: 800, color: 'var(--primary)', marginBottom: '1rem', fontSize: '1.2rem' }}>
+                                    <img
+                                        src="/images/ne-icon-2025-2.png"
+                                        alt="Colección de puntos braille"
+                                        style={{ width: '48px', height: '48px', objectFit: 'contain', marginBottom: '1.5rem' }}
+                                    />
+                                    <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, color: '#111', marginBottom: '1rem', fontSize: '1.25rem' }}>
                                         Nuestra esperanza
                                     </div>
-                                    <p style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
-                                        Compartiendo la esperanza de Jesús con personas ciegas y con baja visión desde hace más de dos décadas.
+                                    <p style={{ fontSize: '0.95rem', lineHeight: '1.5', color: '#666' }}>
+                                        Compartiendo la esperanza de Jesús con personas ciegas y con baja visión.
                                     </p>
                                 </div>
                                 <div>

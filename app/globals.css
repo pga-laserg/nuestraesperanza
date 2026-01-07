@@ -438,16 +438,27 @@ main {
 
 .post-item:hover {
   box-shadow: var(--shadow);
-  border-color: var(--primary);
+  border-color: #111;
+  transform: translateY(-4px);
 }
 
 .badge {
-  background: var(--accent);
-  color: var(--primary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 99px;
-  font-size: 0.85rem;
+  background: #111;
+  color: white;
+  padding: 0.25rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.post-item h3 a {
+  color: #111;
+}
+
+.post-item h3 a:hover {
+  color: #000;
 }
 
 /* Footer */

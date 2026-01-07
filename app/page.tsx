@@ -54,14 +54,11 @@ export default async function HomePage() {
               Compartiendo la esperanza de Jesús con personas ciegas y de baja visión
             </h1>
             <p>
-              Desde 2003, trabajamos incansablemente para llevar el evangelio y literatura accesible a través de todo Chile.
+              Desde 2003, llevamos el evangelio y literatura accesible a personas con discapacidad visual en Chile.
             </p>
             <div className="button-row">
-              <Link className="btn primary" href="#sobre-nosotros">
+              <Link className="btn black" href="#sobre-nosotros">
                 Conoce más
-              </Link>
-              <Link className="btn ghost" href="/recursos/">
-                Ver recursos
               </Link>
             </div>
           </div>
@@ -142,7 +139,7 @@ export default async function HomePage() {
           <div className="post-list">
             {posts.map((post) => (
               <div className="post-item" key={post.slug}>
-                <div style={{ marginBottom: '0.5rem' }}>
+                <div style={{ marginBottom: '1.25rem' }}>
                   <span className="badge">{categoryForSlug(post.slug)}</span>
                 </div>
                 <h3 style={{ margin: '0 0 0.5rem 0' }}>
