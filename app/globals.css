@@ -246,6 +246,7 @@ article li {
   padding: 0.85rem 1rem;
   border-radius: var(--radius-md);
   font-size: 0.95rem;
+  text-align: center;
 }
 
 .form-status.success {

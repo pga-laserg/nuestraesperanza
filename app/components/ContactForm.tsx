@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { supabase } from '@/lib/supabase';
 
 type FormState = {
   nombre: string;
@@ -29,11 +30,41 @@ export function ContactForm() {
     if (status !== 'idle') setStatus('idle');
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Placeholder until Supabase hook-up
+
     const hasRequired = form.nombre && form.email && form.mensaje;
-    setStatus(hasRequired ? 'success' : 'error');
+    if (!hasRequired) {
+      setStatus('error');
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          nombre: form.nombre,
+          apellido: form.apellido,
+          email: form.email,
+          telefono: form.telefono,
+          asunto: form.asunto,
+          mensaje: form.mensaje,
+        });
+
+      if (error) {
+        console.error('Error submitting form:', error);
+        setStatus('error'); // Or a generic error state
+      } else {
+        setStatus('success');
+        setForm(initialState);
+      }
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      setStatus('error');
+    }
   }
 
   return (
@@ -111,7 +142,7 @@ export function ContactForm() {
 
       {status === 'success' && (
         <div className="form-status success">
-          ¡Tu mensaje fue enviado! Pronto lo conectaremos con Supabase.
+          ¡Tu mensaje fue enviado! Pronto te responderemos.
         </div>
       )}
       {status === 'error' && (
