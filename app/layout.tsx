@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Analytics } from "@vercel/analytics/next";
 import './globals.css';
 
 const siteUrl = process.env.SITE_URL || 'https://nuestraesperanza.cl';
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </div>
                     </footer>
                 </main>
+                <Analytics />
             </body>
         </html>
     );
