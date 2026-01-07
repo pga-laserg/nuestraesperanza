@@ -50,7 +50,10 @@ export default async function HomePage() {
     <>
       <section className="hero">
         <div>
-          <h1 className="cardo-regular-italic">Compartiendo la esperanza de Jesús con personas ciegas y de baja visión</h1>
+          <h1 className="cardo-regular-italic">
+            Compartiendo la esperanza de Jesús con<br />
+            personas ciegas y de baja visión
+          </h1>
           <p>Desde 2003, llevamos el evangelio y literatura accesible a personas con discapacidad visual en Chile.</p>
           <div className="button-row">
             <Link className="btn primary" href="#sobre-nosotros">
