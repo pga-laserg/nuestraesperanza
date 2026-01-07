@@ -101,8 +101,10 @@ img {
 }
 
 .hero h1 {
-  font-size: clamp(2.1rem, 3.6vw, 2.8rem);
-  font-style: italic;
+  font-size: 35.1px;
+  line-height: 40.3px;
+  font-style: normal;
+  color: #111111;
 }
 
 .hero p {
