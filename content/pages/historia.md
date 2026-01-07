@@ -37,12 +37,12 @@ Tal como lo expresa la escritora Ellen G. White:
 > Testimonios para la Iglesia, tomo 3, pág. 561.
 
 
-![Un hombre habla por un micrófono. Frente a él varias personas sentadas detrás de una mesa usan laptops.](https://nuestraesperanza.cl/wp-content/uploads/2024/12/DSCN3864-1024x768.jpg)
+![Un hombre habla por un micrófono. Frente a él varias personas sentadas detrás de una mesa usan laptops.](/images/DSCN3864-scaled.jpg)
 
 Segundo encuentro del Ministerio Nuestra Esperanza. Cajón del Maipo, enero de 2012.
 
 
-![Personas ciegas acompañadas de guías caminan por un camino de tierra rodeado por árboles y piedras. De fondo se observa un cerro y el cielo despejado.](https://nuestraesperanza.cl/wp-content/uploads/2024/12/DSCN3765-1024x768.jpg)
+![Personas ciegas acompañadas de guías caminan por un camino de tierra rodeado por árboles y piedras. De fondo se observa un cerro y el cielo despejado.](/images/DSCN3765-scaled.jpg)
 
 Caminata al aire libre durante el segundo encuentro Nuestra Esperanza en Cajón del Maipo, enero de 2012.
 
@@ -66,7 +66,7 @@ El trabajo de la corporación no solo ha beneficiado a la comunidad adventista, 
 * Producción de seminarios de enriquecimiento espiritual y literatura cristiana en formatos de audio.
 
 
-![Cinco personas están sentadas en fila. El más próximo a la cámara sostiene un libro en Braille en sus muslos.](https://nuestraesperanza.cl/wp-content/uploads/2024/12/ne-4-1024x683.jpg)
+![Cinco personas están sentadas en fila. El más próximo a la cámara sostiene un libro en Braille en sus muslos.](/images/ne-4-scaled.jpg)
 
 Miembros de Nuestra Esperanza participan del culto de sábado de la Iglesia Adventista Central de Concepción en el Día internacional de las personas con discapacidad, año 2013.
 
@@ -96,7 +96,7 @@ Con una población estimada de 90,000 personas ciegas en Chile, según el estudi
 2. Adquirir una impresora Braille para producir materiales de manera más eficiente.
 
 
-![En el patio de una casa, un grupo de cerca de 20 personas están sentadas en círculo.](https://nuestraesperanza.cl/wp-content/uploads/2024/12/467635067_122198082548210387_1724208718431958205_n-1024x474.jpg)
+![En el patio de una casa, un grupo de cerca de 20 personas están sentadas en círculo.](/images/467635067_122198082548210387_1724208718431958205_n.jpg)
 
 Encuentro en Negrete, enero de 2024.
 
@@ -144,6 +144,6 @@ Además, Ellen G. White reafirma nuestra responsabilidad como iglesia:
 Hoy, más que nunca, necesitamos el apoyo de socios y colaboradores para continuar llevando esperanza a quienes más lo necesitan. Tu contribución puede ser clave para que este ministerio siga compartiendo las buenas nuevas del evangelio con quienes enfrentan desafíos visuales.
 
 
-![En una mesa, se observa de manera principal una hoja impresa, una regleta Braille y dos discos compactos con material en audio. La hoja de papel muestra gráficamente el alfabeto Braille.](https://nuestraesperanza.cl/wp-content/uploads/2024/12/ne-30-1-1024x683.jpg)
+![En una mesa, se observa de manera principal una hoja impresa, una regleta Braille y dos discos compactos con material en audio. La hoja de papel muestra gráficamente el alfabeto Braille.](/images/ne-30-1-scaled.jpg)
 
 Exposición de materiales accesibles en la Iglesia Adventista de Concepción. Día internacional de las personas con discapacidad, año 2013.

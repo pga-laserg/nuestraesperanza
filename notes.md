@@ -1,4 +1,4 @@
-Reframe, simplify, redirect (execution plan)
+Option C — Reframe, simplify, redirect (execution plan)
 
 1️⃣ Define the new canonical URL (before touching content)
 
@@ -136,3 +136,5 @@ Before shutdown:
 Optional cleanup:
 	•	Remove redirect rule if you truly want old URLs gone
 	•	Or keep it forever (no downside)
+
+⸻
