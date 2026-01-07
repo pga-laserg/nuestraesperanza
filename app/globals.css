@@ -107,7 +107,9 @@ img {
 
 .hero p {
   margin: 0;
-  color: #2c2c2c;
+  color: #111111;
+  font-size: 16.8px;
+  line-height: 26px;
 }
 
 .button-row {
