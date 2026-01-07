@@ -50,7 +50,7 @@ export default async function HomePage() {
     <>
       <section className="hero">
         <div>
-          <h1 className="cardo-regular-italic">
+          <h1 className="cardo-regular-italic" style={{ fontWeight: 400 }}>
             Compartiendo la esperanza de Jesús con<br />
             personas ciegas y de baja visión
           </h1>
