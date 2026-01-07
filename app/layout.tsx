@@ -27,7 +27,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <main>
           <header className="nav">
-            <a href="/" style={{ fontWeight: 800, letterSpacing: '-0.02em', color: '#0b4da5' }}>
+            <a
+              href="/"
+              style={{
+                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                fontWeight: 600,
+                fontSize: '16.7px',
+                lineHeight: '25.9px',
+                letterSpacing: '0px',
+                color: '#111111',
+              }}
+            >
               Nuestra esperanza
             </a>
             <nav>
