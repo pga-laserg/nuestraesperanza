@@ -127,13 +127,15 @@ img {
   justify-content: center;
   padding: 0.65rem 1.05rem;
   border-radius: 3px;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 14.4px;
+  line-height: 22.3px;
   border: 1px solid #0b4da5;
 }
 
 .btn.primary {
   background: #202020;
-  color: #fff;
+  color: #f9f9f9;
   border-color: #202020;
 }
 
