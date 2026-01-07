@@ -30,6 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a
               href="/"
               style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
                 fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
                 fontWeight: 600,
                 fontSize: '16.7px',
@@ -38,6 +41,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 color: '#111111',
               }}
             >
+              <img
+                src="/images/ne-icon-2025-2.png"
+                alt="Nuestra Esperanza logo"
+                style={{ width: '28px', height: '28px', objectFit: 'contain' }}
+              />
               Nuestra esperanza
             </a>
             <nav>
