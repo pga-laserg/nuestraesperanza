@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
+import { submitContactForm } from '@/app/actions/submit-contact';
+
 import examples from 'libphonenumber-js/examples.mobile.json';
 import { CountryCode, getCountries, getCountryCallingCode, getExampleNumber, parsePhoneNumberFromString } from 'libphonenumber-js';
 
@@ -39,6 +41,7 @@ export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [countriesList, setCountriesList] = useState<Country[]>([]);
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
 
   useEffect(() => {
     const list = getCountries()
@@ -83,6 +86,7 @@ export function ContactForm() {
       return;
     }
 
+    // Phone Validation
     let phoneToSend = form.telefono;
     if (form.telefono && form.telefono.trim()) {
       const fullNumber = `${selectedCountry.dial} ${form.telefono}`;
@@ -95,24 +99,32 @@ export function ContactForm() {
       phoneToSend = parsedNumber.formatInternational();
     }
 
-    try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert({
-          nombre: form.nombre,
-          apellido: form.apellido,
-          email: form.email,
-          telefono: phoneToSend,
-          asunto: form.asunto,
-          mensaje: form.mensaje,
-        });
+    if (!turnstileToken) {
+      alert('Por favor completa la verificación de seguridad.');
+      return;
+    }
 
-      if (error) {
-        console.error('Error submitting form:', error);
+    try {
+      const formData = new FormData();
+      formData.append('nombre', form.nombre);
+      formData.append('apellido', form.apellido);
+      formData.append('email', form.email);
+      formData.append('telefono', phoneToSend);
+      formData.append('asunto', form.asunto);
+      formData.append('mensaje', form.mensaje);
+      formData.append('cf-turnstile-response', turnstileToken);
+
+      // Call server action directly
+      const result = await submitContactForm({}, formData);
+
+      if (result.error) {
+        console.error('Submission error:', result.error);
         setStatus('error');
+        alert(result.error);
       } else {
         setStatus('success');
         setForm(initialState);
+        setTurnstileToken(''); // Clear token to force re-verification if needed
       }
     } catch (err) {
       console.error('Unexpected error:', err);
@@ -175,7 +187,7 @@ export function ContactForm() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   height: '100%',
-                  lineHeight: 'normal', // Match standard input line-height behavior
+                  lineHeight: 'normal',
                 }}
               >
                 {selectedCountry.flag} {selectedCountry.dial}
@@ -233,6 +245,15 @@ export function ContactForm() {
         />
       </label>
 
+      {/* Turnstile Widget */}
+      <div style={{ margin: '1rem 0', display: 'flex', justifyContent: 'center' }}>
+        <Turnstile
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          onSuccess={setTurnstileToken}
+          options={{ md: true }}
+        />
+      </div>
+
       <button type="submit" className="btn black" style={{ width: '100%', justifyContent: 'center' }}>
         Enviar mensaje
       </button>
@@ -244,7 +265,7 @@ export function ContactForm() {
       )}
       {status === 'error' && (
         <div className="form-status error">
-          Por favor completa nombre, correo y mensaje antes de enviar.
+          Por favor completa nombre, correo y mensaje antes de enviar, y verifica el captcha.
         </div>
       )}
     </form>
