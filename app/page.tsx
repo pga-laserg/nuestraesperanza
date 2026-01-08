@@ -70,7 +70,7 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-      <section className="section section-lg gray-bg" id="sobre-nosotros">
+      <section className="section section-lg white-bg" id="sobre-nosotros">
         <div className="container">
           <div className="section-header-alt">
             <div className="asterisk">✻</div>
@@ -147,8 +147,6 @@ export default async function HomePage() {
                 </h3>
                 <div style={{ color: 'var(--text-light)', fontSize: '0.9rem', marginBottom: '1rem' }}>
                   {post.lastUpdated && <span>{formatDate(post.lastUpdated)}</span>}
-                  <span style={{ margin: '0 0.5rem' }}>•</span>
-                  <span>Por Froilán Gallardo</span>
                 </div>
                 <p style={{ margin: 0, color: 'var(--text-light)' }}>{post.description}</p>
               </Link>

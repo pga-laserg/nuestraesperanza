@@ -455,12 +455,23 @@ main {
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gap-lg);
+  gap: 2.5rem;
+  /* Default/Mobile gap reduced */
 }
 
 @media (min-width: 900px) {
   .feature-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-lg);
+    /* Restore larger gap for desktop */
+  }
+}
+
+@media (max-width: 900px) {
+  .feature {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
 

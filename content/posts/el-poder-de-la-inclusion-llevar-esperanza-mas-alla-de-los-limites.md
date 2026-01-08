@@ -15,15 +15,3 @@ Cada libro en Braille, cada lección en audio y cada encuentro organizado por el
 
 
 Hoy, el desafío continúa. La necesidad de recursos, voluntarios y tecnología accesible nos impulsa a buscar el apoyo de quienes comparten nuestra visión. Tu participación puede marcar una diferencia real, ayudándonos a derribar barreras y ampliar horizontes. Ya sea grabando un libro, apoyando económicamente o simplemente compartiendo nuestra misión con otros, juntos podemos garantizar que nadie quede excluido del mensaje de amor y esperanza que ofrece el evangelio.
-
-
-
-
-
-https://www.youtube.com/watch?v=QWORoGCPYHc&list=PLeS4hc7iE43ZtBFNzKWkAUeNxvMpQy4hg&index=1
-
-
-
-
-
-[Enlace a Escuela sabática en audio](https://www.audioescuelasabatica.com/lecciones/)

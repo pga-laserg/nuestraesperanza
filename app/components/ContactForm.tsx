@@ -40,6 +40,7 @@ const initialState: FormState = {
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const [countriesList, setCountriesList] = useState<Country[]>([]);
   const [turnstileToken, setTurnstileToken] = useState<string>('');
 
@@ -64,7 +65,10 @@ export function ContactForm() {
 
   function handleChange<K extends keyof FormState>(key: K, value: string | CountryCode) {
     setForm((prev) => ({ ...prev, [key]: value }));
-    if (status !== 'idle') setStatus('idle');
+    if (status !== 'idle') {
+      setStatus('idle');
+      setErrorMessage('');
+    }
   }
 
   const selectedCountry = useMemo(() => {
@@ -83,6 +87,7 @@ export function ContactForm() {
     const hasRequired = form.nombre && form.email && form.mensaje;
     if (!hasRequired) {
       setStatus('error');
+      setErrorMessage('Por favor completa nombre, correo y mensaje antes de enviar.');
       return;
     }
 
@@ -120,7 +125,8 @@ export function ContactForm() {
       if (result.error) {
         console.error('Submission error:', result.error);
         setStatus('error');
-        alert(result.error);
+        setErrorMessage(result.error);
+        // alert(result.error); // removing alert to rely on inline message
       } else {
         setStatus('success');
         setForm(initialState);
@@ -129,6 +135,7 @@ export function ContactForm() {
     } catch (err) {
       console.error('Unexpected error:', err);
       setStatus('error');
+      setErrorMessage('Ocurrió un error inesperado al enviar el mensaje via Server Action.');
     }
   }
 
@@ -264,7 +271,7 @@ export function ContactForm() {
       )}
       {status === 'error' && (
         <div className="form-status error">
-          Por favor completa nombre, correo y mensaje antes de enviar, y verifica el captcha.
+          {errorMessage || 'Por favor completa nombre, correo y mensaje antes de enviar, y verifica el captcha.'}
         </div>
       )}
     </form>

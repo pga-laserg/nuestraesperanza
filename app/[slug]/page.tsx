@@ -31,15 +31,30 @@ function formatDate(dateStr?: string) {
   return new Intl.DateTimeFormat('es-CL', { year: 'numeric', month: 'long', day: 'numeric' }).format(date);
 }
 
+function categoryForSlug(slug: string) {
+  if (slug.includes('encuentro')) return 'Noticias';
+  if (slug.includes('inclusion')) return 'Recursos accesibles';
+  return 'Blog';
+}
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const item = await getContentBySlug(params.slug);
   const isLaSerena = item?.slug === 'encuentro-nacional-la-serena';
   const isHistoria = item?.slug === 'historia';
   const isContacto = item?.slug === 'contacto';
   const isRecursos = item?.slug === 'recursos';
+  const isUltimasPublicaciones = item?.slug === 'ultimas-publicaciones';
 
   if (!item) {
     notFound();
+  }
+
+  // Fetch posts if this is the blog page
+  let posts: any[] = [];
+  if (isUltimasPublicaciones) {
+    const allItems = await getAllContentMeta();
+    posts = allItems.filter((i) => i.type === 'post');
+    posts.sort((a, b) => (b.lastUpdated || '').localeCompare(a.lastUpdated || ''));
   }
 
   let bodyBefore = isContacto ? '' : item.body;
@@ -81,6 +96,26 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {isLaSerena ? (
             <div style={{ margin: '2.5rem 0' }}>
               <FacebookVideo url="https://www.facebook.com/nuestraesperanza.cl/videos/1545216239459170/" />
+            </div>
+          ) : null}
+
+          {isUltimasPublicaciones ? (
+            <div className="post-list" style={{ marginTop: '2rem' }}>
+              {posts.map((post) => (
+                <Link href={`/${post.slug}/`} className="post-item" key={post.slug}>
+                  <div style={{ marginBottom: '1.25rem' }}>
+                    <span className="badge">{categoryForSlug(post.slug)}</span>
+                  </div>
+                  <h3 style={{ margin: '0 0 0.5rem 0', color: '#111' }}>
+                    {post.title}
+                  </h3>
+                  <div style={{ color: 'var(--text-light)', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                    {post.lastUpdated && <span>{formatDate(post.lastUpdated)}</span>}
+                  </div>
+                  <p style={{ margin: 0, color: 'var(--text-light)' }}>{post.description}</p>
+                </Link>
+              ))}
+              {posts.length === 0 && <p style={{ textAlign: 'center' }}>No hay publicaciones disponibles en este momento.</p>}
             </div>
           ) : null}
 
