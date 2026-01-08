@@ -250,7 +250,6 @@ export function ContactForm() {
         <Turnstile
           siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
           onSuccess={setTurnstileToken}
-          options={{ md: true }}
         />
       </div>
 
